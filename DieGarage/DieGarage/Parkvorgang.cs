@@ -6,9 +6,11 @@ namespace DieGarage
         private Parkzeit parkzeit;
         private Fahrzeug geparktesFahrzeug;
 
-        public Parkvorgang(int etage, int parkplatz)
+        public Parkvorgang(int etage, int parkPosition, Fahrzeug neuesFahrzeug)
         {
-            new Parkplatz(etage, parkplatz);
+            parkplatz = new Parkplatz(etage, parkPosition);
+            parkzeit = new Parkzeit();
+            geparktesFahrzeug = neuesFahrzeug;
         }
 
         public Parkplatz GibParkplatz()

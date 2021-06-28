@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace DieGarage
 {
     public class Motorrad : Fahrzeug

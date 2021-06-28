@@ -6,7 +6,7 @@ namespace DieGarage
     {
         static void Main(string[] args)
         {
-            new Garage(7, 25).MenueRoutine();
+            new Garage(7, 25).NummernschildAngeben();
         }
     }
 }
