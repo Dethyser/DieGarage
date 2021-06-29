@@ -15,5 +15,15 @@ namespace DieGarage
         {
             return "Etage:" + etage + " Parkplatz:" + parkplatz;
         }
+
+        public int GibEtage()
+        {
+            return etage;
+        }
+
+        public int GibParkPosition()
+        {
+            return parkplatz;
+        }
     }
 }

@@ -152,23 +152,87 @@ namespace DieGarage
                 }
             }
 
+            Parkvorgang parkvorgang;
             switch (antwortOption)
             {
                 case 1:
-                    FahrzeugParken();
+                    Console.Clear();
+                    int etage = 0;
+                    int parkPosition = 0;
+                    if (!PositionVonFahrzeug(neuesFahrzeug.GibNummernschild(), out parkvorgang) && FindeLeerenParkplatz(out etage, out parkPosition))
+                    {
+                        FahrzeugParken(neuesFahrzeug, etage, parkPosition);
+                        Console.WriteLine("Ihr Fahrzeug wurde an dieser Stelle geparkt: \n" +
+                                          "Etage: " + etage + 1 + " Parkplatz: " + parkPosition + 1 + " \n" +
+                                          "Drücken sie Eingabe zum Fortfahren.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Dieses Fahrzeug ist bereits in der Garage oder die Garage ist voll. \n" +
+                                          "Drücken sie Eingabe zum Fortfahren.");
+                    }
+                    Console.ReadLine();
+                    MenueRoutine();
                     break;
                 case 2:
-                    FahrzeugEntparken();
+                    Console.Clear();
+                    if (PositionVonFahrzeug(neuesFahrzeug.GibNummernschild(), out parkvorgang))
+                    {
+                        FahrzeugEntparken(parkvorgang.GibParkplatz().GibEtage(), parkvorgang.GibParkplatz().GibParkPosition());
+                        TimeSpan parkzeit = parkvorgang.GibParkzeit().GibZeitdifferenz();
+                        int tage = parkzeit.Days;
+                        int stunden = parkzeit.Days;
+                        int minuten = parkzeit.Days;
+                        double preis = 0.0;
+                        if (tage > 0 || stunden > 9)
+                        {
+                            preis = 10.0 + 10.0 * tage;
+                        }
+                        else if(stunden > 0)
+                        {
+                            preis = 1.5 + 1.0 * (stunden - 1);
+                        }
+                        else if(minuten > 20)
+                        {
+                            preis = 1.5;
+                        }
+                        Console.WriteLine("Ihr Fahrzeug verlässt das Parkhaus. \n" +
+                                          "Die Dauer beträgt: \n" +
+                                          "Tage: " + tage + " \n" +
+                                          "Stunden: " + stunden + " \n" +
+                                          "Minuten: " + minuten + " \n" +
+                                          "Die Parkkosten betragen: \n" +
+                                          "Preis : " + preis + " Euro \n" +
+                                          "Drücken sie Eingabe zum Fortfahren.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Dieses Fahrzeug ist nicht im Parkhaus vorhanden. \n" +
+                                          "Drücken sie Eingabe zum Fortfahren.");
+                    }
+                    Console.ReadLine();
+                    MenueRoutine();
                     break;
                 case 3:
-                    Parkvorgang parkvorgang;
-                    PositionVonFahrzeug(neuesFahrzeug.GibNummernschild(), out parkvorgang);
+                    Console.Clear();
+                    if (PositionVonFahrzeug(neuesFahrzeug.GibNummernschild(), out parkvorgang))
+                    {
+                        Console.WriteLine("Ihr Fahrzeug befindet sich hier: \n" +
+                                          parkvorgang.GibParkplatz().GibPosition() + " \n" +
+                                          "Drücken sie Eingabe zum Fortfahren.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Dieses Fahrzeug ist nicht im Parkhaus vorhanden. \n" +
+                                          "Drücken sie Eingabe zum Fortfahren.");
+                    }
+                    Console.ReadLine();
+                    MenueRoutine();
                     break;
                 case 4:
                     NummernschildAngeben();
                     break;
                 case 5:
-                    ProgrammBeenden();
                     break;
                 case 6:
                 case 7:
@@ -184,14 +248,14 @@ namespace DieGarage
             }
         }
 
-        private void FahrzeugParken()
+        private void FahrzeugParken(Fahrzeug zuParkendesFahrzeug, int etage, int parkPosition)
         {
-            
+            parkplaetze[etage, parkPosition] = new Parkvorgang(etage, parkPosition, zuParkendesFahrzeug);
         }
 
-        private void FahrzeugEntparken()
+        private void FahrzeugEntparken(int etage, int parkPosition)
         {
-            
+            parkplaetze[etage, parkPosition] = null;
         }
 
         private bool PositionVonFahrzeug(string fahrzeugId, out Parkvorgang parkvorgang)
@@ -201,7 +265,7 @@ namespace DieGarage
                 for (int j = 0; j < parkplaetze.GetLength(1); j++)
                 {
                     Parkvorgang momentanerParkplatz = parkplaetze[i, j];
-                    if (momentanerParkplatz.GibGeparktesFahreug().GibNummernschild().Equals(fahrzeugId))
+                    if (momentanerParkplatz != null && momentanerParkplatz.GibGeparktesFahreug().GibNummernschild().Equals(fahrzeugId))
                     {
                         parkvorgang = momentanerParkplatz;
                         return true;
@@ -213,10 +277,24 @@ namespace DieGarage
             parkvorgang = null;
             return false;
         }
-        
-        private void ProgrammBeenden()
+
+        private bool FindeLeerenParkplatz(out int etage, out int parkPosition)
         {
-            
+            for (int i = 0; i < parkplaetze.GetLength(0); i++)
+            {
+                for (int j = 0; j < parkplaetze.GetLength(1); j++)
+                {
+                    Parkvorgang momentanerParkplatz = parkplaetze[i, j];
+                    if (momentanerParkplatz != null) continue;
+                    etage = i;
+                    parkPosition = j;
+                    return true;
+
+                }
+            }
+            etage = 0;
+            parkPosition = 0;
+            return false;
         }
     }
 }

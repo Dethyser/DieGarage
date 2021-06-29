@@ -688,27 +688,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\manuel.gutsch\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\gutsc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manuel.gutsch\\Desktop\\DieGarage\\DieGarage\\DieGarage\\DieGarage.csproj",
+      "projectUniqueName": "C:\\Users\\gutsc\\Desktop\\Projekte\\DieGarage\\DieGarage\\DieGarage\\DieGarage.csproj",
       "projectName": "DieGarage",
-      "projectPath": "C:\\Users\\manuel.gutsch\\Desktop\\DieGarage\\DieGarage\\DieGarage\\DieGarage.csproj",
-      "packagesPath": "C:\\Users\\manuel.gutsch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\manuel.gutsch\\Desktop\\DieGarage\\DieGarage\\DieGarage\\obj\\",
+      "projectPath": "C:\\Users\\gutsc\\Desktop\\Projekte\\DieGarage\\DieGarage\\DieGarage\\DieGarage.csproj",
+      "packagesPath": "C:\\Users\\gutsc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gutsc\\Desktop\\Projekte\\DieGarage\\DieGarage\\DieGarage\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\manuel.gutsch\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\gutsc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -719,6 +712,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "projectReferences": {}
         }
       },
@@ -730,6 +724,7 @@
     },
     "frameworks": {
       "netcoreapp2.1": {
+        "targetAlias": "netcoreapp2.1",
         "dependencies": {
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
@@ -739,10 +734,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

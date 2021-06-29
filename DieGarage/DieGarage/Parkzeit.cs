@@ -9,7 +9,7 @@ namespace DieGarage
 
         public Parkzeit()
         {
-            einfahrtszeit = DateTime.Now;
+            einfahrtszeit = new DateTime(DateTime.Now.Ticks);
         }
 
         public TimeSpan GibZeitdifferenz()

@@ -9,3 +9,15 @@ C:\Users\manuel.gutsch\Desktop\DieGarage\DieGarage\DieGarage\bin\Debug\netcoreap
 C:\Users\manuel.gutsch\Desktop\DieGarage\DieGarage\DieGarage\bin\Debug\netcoreapp2.1\DieGarage.pdb
 C:\Users\manuel.gutsch\Desktop\DieGarage\DieGarage\DieGarage\obj\Debug\netcoreapp2.1\DieGarage.dll
 C:\Users\manuel.gutsch\Desktop\DieGarage\DieGarage\DieGarage\obj\Debug\netcoreapp2.1\DieGarage.pdb
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\bin\Debug\netcoreapp2.1\DieGarage.deps.json
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\bin\Debug\netcoreapp2.1\DieGarage.runtimeconfig.json
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\bin\Debug\netcoreapp2.1\DieGarage.runtimeconfig.dev.json
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\bin\Debug\netcoreapp2.1\DieGarage.dll
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\bin\Debug\netcoreapp2.1\DieGarage.pdb
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\obj\Debug\netcoreapp2.1\DieGarage.csprojAssemblyReference.cache
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\obj\Debug\netcoreapp2.1\DieGarage.AssemblyInfoInputs.cache
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\obj\Debug\netcoreapp2.1\DieGarage.AssemblyInfo.cs
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\obj\Debug\netcoreapp2.1\DieGarage.csproj.CoreCompileInputs.cache
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\obj\Debug\netcoreapp2.1\DieGarage.dll
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\obj\Debug\netcoreapp2.1\DieGarage.pdb
+C:\Users\gutsc\Desktop\Projekte\DieGarage\DieGarage\DieGarage\obj\Debug\netcoreapp2.1\DieGarage.genruntimeconfig.cache
