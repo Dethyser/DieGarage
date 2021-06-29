@@ -15,7 +15,7 @@ namespace DieGarage
         public TimeSpan GibZeitdifferenz()
         {
             ausfahrtszeit = DateTime.Now;
-            return ausfahrtszeit - einfahrtszeit;
+            return (ausfahrtszeit - einfahrtszeit);
         }
     }
 }

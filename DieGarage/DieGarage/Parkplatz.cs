@@ -13,7 +13,7 @@ namespace DieGarage
 
         public string GibPosition()
         {
-            return "Etage:" + etage + " Parkplatz:" + parkplatz;
+            return "Etage:" + (etage + 1) + " Parkplatz:" + (parkplatz + 1);
         }
 
         public int GibEtage()

@@ -130,8 +130,9 @@ namespace DieGarage
                                  "1| Fahrzeug parken. \n" +
                                  "2| Fahrzeug parken't. \n" +
                                  "3| Parkplatz von Fahrzeug finden. \n" +
-                                 "4| Fahrzeug wechseln. \n" +
-                                 "5| Menu beenden. \n");
+                                 "4| Parkzeit ablesenw. \n" +
+                                 "5| Fahrzeug wechseln. \n" +
+                                 "6| Menu beenden. \n");
             Console.WriteLine(stringBuilder);
             bool antwortGefunden = false;
             int antwortOption = 9;
@@ -163,7 +164,7 @@ namespace DieGarage
                     {
                         FahrzeugParken(neuesFahrzeug, etage, parkPosition);
                         Console.WriteLine("Ihr Fahrzeug wurde an dieser Stelle geparkt: \n" +
-                                          "Etage: " + etage + 1 + " Parkplatz: " + parkPosition + 1 + " \n" +
+                                          "Etage: " + (etage + 1) + " Parkplatz: " + (parkPosition + 1) + " \n" +
                                           "Drücken sie Eingabe zum Fortfahren.");
                     }
                     else
@@ -181,8 +182,8 @@ namespace DieGarage
                         FahrzeugEntparken(parkvorgang.GibParkplatz().GibEtage(), parkvorgang.GibParkplatz().GibParkPosition());
                         TimeSpan parkzeit = parkvorgang.GibParkzeit().GibZeitdifferenz();
                         int tage = parkzeit.Days;
-                        int stunden = parkzeit.Days;
-                        int minuten = parkzeit.Days;
+                        int stunden = parkzeit.Hours;
+                        int minuten = parkzeit.Minutes;
                         double preis = 0.0;
                         if (tage > 0 || stunden > 9)
                         {
@@ -230,11 +231,48 @@ namespace DieGarage
                     MenueRoutine();
                     break;
                 case 4:
-                    NummernschildAngeben();
+                    Console.Clear();
+                    if (PositionVonFahrzeug(neuesFahrzeug.GibNummernschild(), out parkvorgang))
+                    {
+                        FahrzeugEntparken(parkvorgang.GibParkplatz().GibEtage(), parkvorgang.GibParkplatz().GibParkPosition());
+                        TimeSpan parkzeit = parkvorgang.GibParkzeit().GibZeitdifferenz();
+                        int tage = parkzeit.Days;
+                        int stunden = parkzeit.Days;
+                        int minuten = parkzeit.Days;
+                        double preis = 0.0;
+                        if (tage > 0 || stunden > 9)
+                        {
+                            preis = 10.0 + 10.0 * (tage - 1);
+                        }
+                        else if(stunden > 0)
+                        {
+                            preis = 1.5 + 1.0 * (stunden - 1);
+                        }
+                        else if(minuten > 20)
+                        {
+                            preis = 1.5;
+                        }
+                        Console.WriteLine("Die Dauer beträgt: \n" +
+                                          "Tage: " + tage + " \n" +
+                                          "Stunden: " + stunden + " \n" +
+                                          "Minuten: " + minuten + " \n" +
+                                          "Die Parkkosten würden betragen: \n" +
+                                          "Preis : " + preis + " Euro \n" +
+                                          "Drücken sie Eingabe zum Fortfahren.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Dieses Fahrzeug ist nicht im Parkhaus vorhanden. \n" +
+                                          "Drücken sie Eingabe zum Fortfahren.");
+                    }
+                    Console.ReadLine();
+                    MenueRoutine();
                     break;
                 case 5:
+                    NummernschildAngeben();
                     break;
                 case 6:
+                    break;
                 case 7:
                 case 8:
                 case 9:
